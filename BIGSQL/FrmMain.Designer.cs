@@ -31,9 +31,14 @@ namespace BIGSQL
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.txtFilepos = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnLoadFile = new System.Windows.Forms.ToolStripButton();
+            this.txtTable = new System.Windows.Forms.ToolStripTextBox();
+            this.txtPos = new System.Windows.Forms.ToolStripTextBox();
             this.btnStart = new System.Windows.Forms.ToolStripButton();
+            this.btnStop = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnTest = new System.Windows.Forms.Button();
             this.txtDatabae = new System.Windows.Forms.TextBox();
@@ -45,9 +50,9 @@ namespace BIGSQL
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSql = new System.Windows.Forms.RichTextBox();
-            this.btnStop = new System.Windows.Forms.ToolStripButton();
-            this.txtPos = new System.Windows.Forms.ToolStripTextBox();
-            this.txtTable = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -58,19 +63,45 @@ namespace BIGSQL
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabel1,
+            this.txtFilepos});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 420);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1322, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1322, 30);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.ForeColor = System.Drawing.Color.Gray;
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(226, 24);
+            this.toolStripStatusLabel2.Text = "ahmethamdibyrak@hotmail.com";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(108, 24);
+            this.toolStripStatusLabel1.Text = "big Sql v: 0.0.1";
+            // 
+            // txtFilepos
+            // 
+            this.txtFilepos.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+            this.txtFilepos.Name = "txtFilepos";
+            this.txtFilepos.Size = new System.Drawing.Size(22, 24);
+            this.txtFilepos.Text = "...";
             // 
             // toolStrip1
             // 
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnLoadFile,
+            this.toolStripLabel1,
             this.txtTable,
+            this.toolStripLabel2,
             this.txtPos,
             this.btnStart,
             this.btnStop});
@@ -80,15 +111,17 @@ namespace BIGSQL
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // btnLoadFile
+            // txtTable
             // 
-            this.btnLoadFile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnLoadFile.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadFile.Image")));
-            this.btnLoadFile.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnLoadFile.Name = "btnLoadFile";
-            this.btnLoadFile.Size = new System.Drawing.Size(36, 36);
-            this.btnLoadFile.Text = "toolStripButton1";
-            this.btnLoadFile.Click += new System.EventHandler(this.btnLoadFile_Click);
+            this.txtTable.Name = "txtTable";
+            this.txtTable.Size = new System.Drawing.Size(100, 39);
+            // 
+            // txtPos
+            // 
+            this.txtPos.Name = "txtPos";
+            this.txtPos.Size = new System.Drawing.Size(100, 39);
+            this.txtPos.Text = "0";
+            this.txtPos.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnStart
             // 
@@ -97,8 +130,18 @@ namespace BIGSQL
             this.btnStart.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(36, 36);
-            this.btnStart.Text = "toolStripButton2";
+            this.btnStart.Text = "Start";
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // btnStop
+            // 
+            this.btnStop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnStop.Image = ((System.Drawing.Image)(resources.GetObject("btnStop.Image")));
+            this.btnStop.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(36, 36);
+            this.btnStop.Text = "Stop";
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // splitContainer1
             // 
@@ -123,7 +166,7 @@ namespace BIGSQL
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.txtSql);
-            this.splitContainer1.Size = new System.Drawing.Size(1322, 389);
+            this.splitContainer1.Size = new System.Drawing.Size(1322, 381);
             this.splitContainer1.SplitterDistance = 144;
             this.splitContainer1.TabIndex = 3;
             // 
@@ -206,33 +249,21 @@ namespace BIGSQL
             this.txtSql.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtSql.Location = new System.Drawing.Point(0, 0);
             this.txtSql.Name = "txtSql";
-            this.txtSql.Size = new System.Drawing.Size(1322, 241);
+            this.txtSql.Size = new System.Drawing.Size(1322, 233);
             this.txtSql.TabIndex = 0;
             this.txtSql.Text = "";
             // 
-            // btnStop
+            // toolStripLabel1
             // 
-            this.btnStop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnStop.Image = ((System.Drawing.Image)(resources.GetObject("btnStop.Image")));
-            this.btnStop.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(36, 36);
-            this.btnStop.Text = "toolStripButton1";
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(112, 36);
+            this.toolStripLabel1.Text = "If line contains: ";
             // 
-            // txtPos
+            // toolStripLabel2
             // 
-            this.txtPos.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtPos.Name = "txtPos";
-            this.txtPos.Size = new System.Drawing.Size(100, 39);
-            this.txtPos.Text = "0";
-            this.txtPos.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtTable
-            // 
-            this.txtTable.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtTable.Name = "txtTable";
-            this.txtTable.Size = new System.Drawing.Size(100, 39);
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(120, 36);
+            this.toolStripLabel2.Text = "Start file\'s line of";
             // 
             // FrmMain
             // 
@@ -242,9 +273,12 @@ namespace BIGSQL
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMain";
-            this.Text = "Form1";
+            this.Text = ".:Big Sql File Dumper:.";
             this.Load += new System.EventHandler(this.FrmMain_Load);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -261,7 +295,6 @@ namespace BIGSQL
 
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton btnLoadFile;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.TextBox txtDatabae;
@@ -277,6 +310,11 @@ namespace BIGSQL
         private System.Windows.Forms.ToolStripButton btnStop;
         private System.Windows.Forms.ToolStripTextBox txtPos;
         private System.Windows.Forms.ToolStripTextBox txtTable;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel txtFilepos;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
     }
 }
 

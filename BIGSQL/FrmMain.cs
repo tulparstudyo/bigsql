@@ -54,22 +54,17 @@ namespace BIGSQL
 
         }
 
-        private void btnLoadFile_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog opf = new OpenFileDialog();
-            opf.ShowDialog();
-
-            file_path = opf.FileName;
-
-
-        }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
             if (!File.Exists(file_path))
             {
-                MessageBox.Show("SQL dosyası bulunamadı: "  + file_path);
-                return;
+                OpenFileDialog opf = new OpenFileDialog();
+                opf.ShowDialog();
+
+                if(opf.FileName == "")return;
+                file_path = opf.FileName;
+                
             }
             Properties.Settings.Default.pos = txtPos.Text;
             Properties.Settings.Default.table = txtTable.Text;
@@ -94,6 +89,8 @@ namespace BIGSQL
                 while ( (line = sr.ReadLine()) != null)
                 {
                     sira++;
+                    txtFilepos.Text = "Sql file position: " + sira.ToString();
+                    Application.DoEvents();
                     if (sira < pos) continue;
                     if (line.IndexOf("--") == 0) continue;
                     if (line.IndexOf("/*") == 0) continue;
@@ -119,7 +116,7 @@ namespace BIGSQL
 
                     }
    
-                    Application.DoEvents();
+                   
                     if (click_stop)
                     {
                         click_stop = false;
