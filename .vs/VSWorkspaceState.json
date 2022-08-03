@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\BIGSQL"
   ],
-  "SelectedNode": "\\D:\\VS\\Projeler\\BIGSQL",
+  "SelectedNode": "\\BIGSQL\\FrmMain.cs",
   "PreviewInSolutionExplorer": false
 }
